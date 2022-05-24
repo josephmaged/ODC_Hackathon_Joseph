@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:odc_courses/const/const.dart';
+import 'package:odc_courses/screens/categories_course_list.dart';
 import 'package:odc_courses/screens/categories_screen.dart';
 import 'package:odc_courses/widgets/courses_card.dart';
 
@@ -125,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
+                      onTap: ()=> Navigator.of(context).pushNamed(categoriesCourseList.ID),
                       child: SvgPicture.asset('assets/images/WebDevelopment.svg'),
                     ),
                     GestureDetector(

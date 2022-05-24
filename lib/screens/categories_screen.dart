@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:odc_courses/screens/categories_course_list.dart';
 
 class categoriesScreen extends StatelessWidget {
   static const String ID = 'CategoriesScreen';
@@ -15,11 +16,10 @@ class categoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
         title: const Text(
           'Categories',
-          style: TextStyle(color: Colors.black),
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SafeArea(
         child: GridView.builder(
@@ -34,8 +34,11 @@ class categoriesScreen extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
-                    SvgPicture.asset(
-                      courseCategories[index],
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed(categoriesCourseList.ID),
+                      child: SvgPicture.asset(
+                        courseCategories[index],
+                      ),
                     ),
                   ],
                 ),
