@@ -18,6 +18,13 @@ class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
   bool privacyCheckBox = false;
 
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var fullNameController = TextEditingController();
+  var phoneController = TextEditingController();
+  var addressController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,18 +60,21 @@ class _SignUpState extends State<SignUp> {
                     child: Column(
                       children: [
                         customTextFormField(
+                          controller: fullNameController,
                           hintText: "Full Name",
                           prefixIcon: Icons.person_outline,
                           keyboardType: TextInputType.name,
                         ),
                         const SizedBox(height: 20),
                         customTextFormField(
+                          controller: emailController,
                           hintText: "E-mail",
                           prefixIcon: Icons.email_outlined,
                           keyboardType: TextInputType.emailAddress,
                         ),
                         const SizedBox(height: 20),
                         customTextFormField(
+                          controller: passwordController,
                           obscureText: true,
                           hintText: "Password",
                           prefixIcon: Icons.lock_outline,
@@ -72,12 +82,14 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const SizedBox(height: 20),
                         customTextFormField(
+                          controller: phoneController,
                           hintText: "Phone Number",
                           prefixIcon: Icons.phone_outlined,
                           keyboardType: TextInputType.phone,
                         ),
                         const SizedBox(height: 20),
                         customTextFormField(
+                          controller: addressController,
                           hintText: "Address",
                           prefixIcon: Icons.location_on_outlined,
                           keyboardType: TextInputType.streetAddress,

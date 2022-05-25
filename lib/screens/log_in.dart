@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:odc_courses/network/dio_helper.dart';
 import 'package:odc_courses/screens/home_screen.dart';
 import 'package:odc_courses/screens/sign_up.dart';
 import 'package:odc_courses/widgets/text_form_field.dart';
+import 'package:odc_courses/model/user.dart';
 
 import '../const/const.dart';
 
@@ -15,6 +17,9 @@ class LogIn extends StatefulWidget {
 
 class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +61,14 @@ class _LogInState extends State<LogIn> {
                     child: Column(
                       children: [
                         customTextFormField(
+                          controller: emailController,
                           hintText: "E-mail",
                           prefixIcon: Icons.email_outlined,
                           keyboardType: TextInputType.emailAddress,
                         ),
                         const SizedBox(height: 20),
                         customTextFormField(
+                          controller: passwordController,
                           hintText: "Password",
                           prefixIcon: Icons.lock_outline,
                           keyboardType: TextInputType.visiblePassword,
@@ -86,7 +93,10 @@ class _LogInState extends State<LogIn> {
                                 primary: primaryColor,
                               ),
                               onPressed: () {
-                                Navigator.of(context).pushNamed(HomeScreen.ID);
+                                DioHelper.postData(url: "/login", data: {
+                                  "email": "bosayousef981@gmail.com",
+                                  "password": "asdfghMMM9",
+                                });
                               },
                               child: const Text(
                                 'Login',
@@ -101,12 +111,10 @@ class _LogInState extends State<LogIn> {
                           children: [
                             const Text(
                               'Don’t Have an Account? ',
-                              style: TextStyle(
-                                  fontSize: 13
-                              ),
+                              style: TextStyle(fontSize: 13),
                             ),
                             GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 Navigator.of(context).pushNamed(SignUp.ID);
                               },
                               child: const Text(

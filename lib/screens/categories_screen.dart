@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:odc_courses/screens/categories_course_list.dart';
+import 'package:odc_courses/network/dio_helper.dart';
 
 class categoriesScreen extends StatelessWidget {
   static const String ID = 'CategoriesScreen';

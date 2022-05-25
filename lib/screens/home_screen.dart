@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:odc_courses/const/const.dart';
 import 'package:odc_courses/screens/categories_course_list.dart';
 import 'package:odc_courses/screens/categories_screen.dart';
+import 'package:odc_courses/screens/new_courses.dart';
 import 'package:odc_courses/widgets/courses_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -146,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Navigator.of(context).pushNamed(newCourses.ID),
                       child: const Text(
                         'See All',
                         style: TextStyle(fontSize: 12, decoration: TextDecoration.underline),

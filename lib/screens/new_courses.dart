@@ -1,37 +1,28 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:odc_courses/widgets/text_form_field.dart';
 
-class categoriesCourseList extends StatelessWidget {
-  static const String ID = 'CategoriesCourseList';
 
-  final List<String> courseImg = <String>['assets/images/BecomeAWeb.png', 'assets/images/UI_UX.png'];
-  final List<String> courseName = <String>['Become a Web Developer from Scratch', 'Learn UI/UX for Beginners'];
-  final List<String> courseAuth = <String>['Ahmed Abaza', 'Ahmed Abaza'];
-  final List<String> courseHours = <String>['15 Hours', '15 Hours'];
+final List<String> courseImg = <String>['assets/images/BecomeAWeb.png', 'assets/images/UI_UX.png'];
+final List<String> courseName = <String>['Become a Web Developer from Scratch', 'Learn UI/UX for Beginners'];
+final List<String> courseAuth = <String>['Ahmed Abaza', 'Ahmed Abaza'];
+final List<String> courseHours = <String>['15 Hours', '15 Hours'];
+
+class newCourses extends StatelessWidget {
+  static const String ID = 'NewCourses';
 
   @override
   Widget build(BuildContext context) {
-
-    var searchController = TextEditingController();
-
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Web Development'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        title: const Text(
+          'New Courses',
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            customTextFormField(
-              controller: searchController,
-              keyboardType: TextInputType.name,
-              prefixIcon: Icons.search,
-              hintText: "Search",
-            ),
             Expanded(
               child: ListView.builder(
                 itemCount: courseName.length,
@@ -45,27 +36,27 @@ class categoriesCourseList extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     title: Text(
-                      courseName[index]
+                        courseName[index]
                     ),
                     subtitle: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          courseAuth[index]
+                            courseAuth[index]
                         ),
                         const Text(" "),
                         Text(
-                          courseHours[index]
+                            courseHours[index]
                         )
                       ],
                     ),
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
-      ),
+      )
     );
   }
 }
